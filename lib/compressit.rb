@@ -2,7 +2,7 @@
 
 module Compressit
   
-  require 'lib/compressit/railtie' if defined?(Rails)
+  require 'compressit/railtie' if defined?(Rails)
   
   #class Railtie < Rails::Railtie
     
