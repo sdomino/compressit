@@ -1,5 +1,7 @@
 module Compressit
   
+  require 'compressit/railtie' if defined?(Rails)
+  
   def self.css
     @files_to_compress   = Dir.glob("#{Dir.new("#{Rails.root}/public/stylesheets")}/**/*.css")
     @destination_path    = Dir.open("#{Rails.root}/public/stylesheets/compressed")
@@ -7,7 +9,7 @@ module Compressit
     @version             = CSS_VERSION
     @ext                 = ".css"
     @compressed          = "compressed-#{@version}#{@ext}"
-  
+
     compressit
   end
 
@@ -18,7 +20,7 @@ module Compressit
     @version             = JS_VERSION
     @ext                 = ".js"
     @compressed          = "compressed-#{@version}#{@ext}"
-  
+
     compressit
   end
 
@@ -27,7 +29,7 @@ module Compressit
   def compressit
     @java                = "/usr/bin/java"
     @yuicompressor       = "#{File.dirname(__FILE__)}/yuicompressor-2.4.2.jar"
-  
+
     # remove current file if for some reason it already exists
     `rm -f #{File.path(@destination_path)}/#{@compressed}` if File.exists?("#{File.path(@destination_path)}/#{@compressed}")
 
