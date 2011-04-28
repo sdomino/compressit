@@ -1,4 +1,4 @@
-module compressit
+module Compressit
   
   require 'compressit'
   require 'rails'
