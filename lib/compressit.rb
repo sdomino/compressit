@@ -1,9 +1,9 @@
-require 'rails'
+#require 'rails'
 
 module Compressit
   class Railtie < Rails::Railtie
     
-    #require 'lib/compressit/railtie' if defined?(Rails)
+    require 'lib/compressit/railtie' if defined?(Rails)
   
     def self.css
       @files_to_compress   = Dir.glob("#{Dir.new("#{Rails.root}/public/stylesheets")}/**/*.css")
