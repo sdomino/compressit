@@ -1,10 +1,11 @@
 #require 'rails'
 
 module Compressit
-  class Railtie < Rails::Railtie
-    
-    require 'lib/compressit/railtie' if defined?(Rails)
   
+  require 'lib/compressit/railtie' if defined?(Rails)
+  
+  #class Railtie < Rails::Railtie
+    
     def self.css
       @files_to_compress   = Dir.glob("#{Dir.new("#{Rails.root}/public/stylesheets")}/**/*.css")
       @destination_path    = Dir.open("#{Rails.root}/public/stylesheets/compressed")
@@ -46,5 +47,5 @@ module Compressit
       puts "Complete! Compressed #{@ext} file: '#{@compressed}' can be found in '#{File.path(@destination_path)}'"
     end
   
-  end
+  #end
 end
