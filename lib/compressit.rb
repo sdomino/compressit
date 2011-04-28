@@ -1,7 +1,5 @@
-require "rails"
-
 module Compressit
-    
+  
   def self.css
     @files_to_compress   = Dir.glob("#{Dir.new("#{Rails.root}/public/stylesheets")}/**/*.css")
     @destination_path    = Dir.open("#{Rails.root}/public/stylesheets/compressed")
