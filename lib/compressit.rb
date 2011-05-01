@@ -16,8 +16,8 @@ module Compressit
     # end
     
     rake_tasks do
-      load "tasks/compressit.tasks"
-      #load "tasks/compressit.*"
+      #load "tasks/compressit.tasks"
+      load "tasks/compressit.*"
     end
     
     def self.css
