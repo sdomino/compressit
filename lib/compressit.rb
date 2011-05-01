@@ -5,22 +5,22 @@ module Compressit
   require 'compressit/railtie' if defined?(Rails)
   
   class Compressit < Rails::Railtie
-    initializer "my_railtie.configure_rails_initialization" do |app|
-      # some initialization behavior
-    end
+    # initializer "my_railtie.configure_rails_initialization" do |app|
+    #   # some initialization behavior
+    # end
     
     # Customize the ORM
     #config.app_generators.orm :my_railtie_orm
 
     # Add a to_prepare block which is executed once in production
     # and before each request in development
-    config.to_prepare do
-      Compressit.setup!
-    end
+    # config.to_prepare do
+    #   Compressit.setup!
+    # end
     
     rake_tasks do
-      #load "tasks/compressit.tasks"
-      load "tasks/compressit.*"
+      load "tasks/compressit.tasks"
+      #load "tasks/compressit.*"
     end
     
     # generators do
