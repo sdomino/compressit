@@ -20,6 +20,10 @@ module Compressit
       load "tasks/compressit.rake"
     end
     
+    def self.do 
+      puts "do"
+    end
+    
     def self.css
         @files_to_compress   = Dir.glob("#{Dir.new("#{Rails.root}/public/stylesheets")}/**/*.css")
         @destination_path    = Dir.open("#{Rails.root}/public/stylesheets/compressed")
