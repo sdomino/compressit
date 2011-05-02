@@ -5,6 +5,10 @@ require 'rails'
 module Compressit
   class Compressit < Rails::Railtie
     
+    # initialzer "setup" do
+    #   
+    # end
+    
     # Add a to_prepare block which is executed once in production
     # and before each request in development
     # config.to_prepare do

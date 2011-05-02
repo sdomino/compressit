@@ -1,3 +1,5 @@
+require 'compressit/help'
+
 module Compressit
   class Base
     
