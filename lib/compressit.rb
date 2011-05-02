@@ -3,6 +3,7 @@
 module Compressit
   
   require 'compressit/railtie' if defined?(Rails)
+  require 'compressit/help'
   
   class Compressit < Rails::Railtie
     # initializer "my_railtie.configure_rails_initialization" do |app|
