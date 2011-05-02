@@ -1,15 +1,15 @@
 require 'compressit/help'
 
 module Compressit
-  class Base
+  module Base
     
-    def setup
+    def self.setup
       # install thor tasks
       # `thor install lib/tasks/compressit.thor`
       puts "setup"
     end
     
-    def css
+    def self.css
       # @files_to_compress   = Dir.glob("#{Dir.new("#{Rails.root}/public/stylesheets")}/**/*.css")
       # @destination_path    = Dir.open("#{Rails.root}/public/stylesheets/compressed")
       # # version update somehow
@@ -19,7 +19,7 @@ module Compressit
       puts "css"
     end
 
-    def js
+    def self.js
       # @files_to_compress   = Dir.glob("#{Dir.new("#{Rails.root}/public/javascripts")}/**/*.js")
       # @destination_path    = Dir.open("#{Rails.root}/public/javascripts/compressed")
       # # version update somehow
@@ -28,6 +28,8 @@ module Compressit
       # @compressed          = "compressed-#{@version}#{@ext}"
       puts "js"
     end
+    
+    protected
   
     def compress
       # @java                = "/usr/bin/java"

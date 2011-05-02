@@ -3,10 +3,15 @@ module Compressit
 
     def self.usage
       puts %{
-        === Usage ===
+        --- Usage ---
 
-        help                         # show this usage
-        version                      # show the gem version
+        (--)help, -h                 # show this usage
+        (--)version, -v              # show the gem version
+        
+        --- Rake Tasks ---
+        
+        
+        --- Thor Tasks ---
       }
     end
 

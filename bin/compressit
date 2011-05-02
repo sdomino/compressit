@@ -9,4 +9,4 @@ rescue LoadError
   require 'compressit'
 end
 
-Compressit::Help.usage
+#Compressit::Help.usage
