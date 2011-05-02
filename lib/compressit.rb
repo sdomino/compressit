@@ -21,6 +21,9 @@ module Compressit
       load "tasks/compressit.rake"
     end
     
+    # install thor tasks
+    `thor install lib/tasks/compressit.thor`
+    
   end
   
 end
