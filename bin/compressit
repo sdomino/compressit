@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+require 'compressit/help'
+
 begin
   require 'compressit'
 rescue LoadError
