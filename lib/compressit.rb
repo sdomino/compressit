@@ -2,6 +2,7 @@ require 'compressit/base'
 require 'compressit/help'
 
 require 'compressit/railtie' if defined?(Rails)
+require 'rails'
 
 module Compressit
   class Compressit < Rails::Railtie
