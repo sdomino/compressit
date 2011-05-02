@@ -1,11 +1,9 @@
-module Compressit
-  
-  require 'compressit/base'
-  require 'compressit/help'
-  require 'compressit/command'
-  require 'compressit/railtie' if defined?(Rails)
+require 'compressit/base'
+require 'compressit/railtie' if defined?(Rails)
 
+module Compressit
   class Compressit < Rails::Railtie
+    
     # initializer "my_railtie.configure_rails_initialization" do |app|
     #   # some initialization behavior
     # end
@@ -21,9 +19,5 @@ module Compressit
       load "tasks/compressit.rake"
     end
     
-    # install thor tasks
-    `thor install lib/tasks/compressit.thor`
-    
   end
-  
 end

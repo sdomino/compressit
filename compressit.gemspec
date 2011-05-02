@@ -12,11 +12,11 @@ Gem::Specification.new do |s|
   s.summary     = "%q{Compressit is a simple gem that will compress all of your .css and .js files into single compressed files respectively.}"
   s.description = "%q{Compressit uses the yuicompressor-2.4.2.jar java file created by Yahoo to compress all of your .css and .js files into single compressed files respectively. This not only reduces the size of your files (turning them into one), but also results in less http requests at load time resulting in an overall faster site, and a higher grade from Yahoo's 'Yslow' firefox plugin.}"
   
-  s.rubyforge_project = "compressit"
+  #s.rubyforge_project = "compressit"
   
   s.add_development_dependency "rspec"
   
-  s.add_dependency "rails"
+  #s.add_dependency "rails"
   
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
