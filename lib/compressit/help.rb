@@ -1,18 +1,14 @@
 module Compressit
   module Help
-    puts "hi"
-    
-    class << self
 
-      def usage
-        display %{
-          === Usage ===
+    def self.usage
+      puts %{
+        === Usage ===
 
-          help                         # show this usage
-          version                      # show the gem version
-        }
-      end
-
+        help                         # show this usage
+        version                      # show the gem version
+      }
     end
+
   end
 end
