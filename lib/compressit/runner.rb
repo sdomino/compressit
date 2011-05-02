@@ -8,7 +8,7 @@ module Compressit::Runner
   class << self
     
     def run(argv = ARGV)
-      puts argv.shirt.strip
+      puts argv.shift.strip
     end
   
   end
