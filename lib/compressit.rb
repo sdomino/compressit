@@ -1,5 +1,3 @@
-#require "rails"
-
 module Compressit
   
   require 'compressit/railtie' if defined?(Rails)
