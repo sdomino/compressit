@@ -8,5 +8,3 @@ rescue LoadError
   require 'rubygems'
   require 'compressit'
 end
-
-#Compressit::Help.usage
