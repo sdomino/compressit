@@ -5,7 +5,7 @@ namespace :compressit do
     #     file.puts "CSS_VERSION = '1.0.0'"
     #     file.puts "JS_VERSION = '1.0.0'"
     #   end
-    puts Dir.glob("#{Dir.new("#{Rails.root}/public/stylesheets")}/**/*.css")
+    puts "do stuff"
   end
   
   namespace :version do
