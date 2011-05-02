@@ -1,15 +1,18 @@
-module Compressit::Runner
+module Compressit
+  module Runner
   
-  OPTIONS = [
-    ['-v, --version', 'Print version'],
-    ['-h, --help', 'Print help']
-  ]
+    OPTIONS = [
+      ['-v, --version', 'Print version'],
+      ['-h, --help', 'Print help']
+    ]
   
-  class << self
+    class << self
     
-    def run(argv = ARGV)
-      puts argv.shirt.strip
-    end
+      def run(argv = ARGV)
+        puts argv.shirt.strip
+      end
   
+    end
+    
   end
 end
