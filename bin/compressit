@@ -2,6 +2,7 @@
 
 begin
   require 'compressit'
+  require 'compressit/runner'
 rescue LoadError
   require 'rubygems'
   require 'compressit'
