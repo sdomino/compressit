@@ -1,5 +1,5 @@
 module Compressit
-  module Command < Base
+  module Command
     
     def css
       # @files_to_compress   = Dir.glob("#{Dir.new("#{Rails.root}/public/stylesheets")}/**/*.css")
