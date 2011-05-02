@@ -1,5 +1,5 @@
 module Compressit
-  class Help
+  class Help < Base
     
     def index
       display %{
