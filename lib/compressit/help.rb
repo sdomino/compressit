@@ -1,5 +1,7 @@
 module Compressit
   module Help
+    puts "hi"
+    
     class << self
 
       def usage
