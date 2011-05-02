@@ -1,6 +1,3 @@
-require 'compressit/help'
-require 'compressit/command'
-
 module Compressit
   class Base
     
