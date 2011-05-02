@@ -1,7 +1,7 @@
 module Compressit
-  class Help
+  module Help
     
-    def index
+    def usage
       display %{
         === Usage ===
 

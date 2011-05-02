@@ -7,4 +7,4 @@ rescue LoadError
   require 'compressit'
 end
 
-puts "hello"
+Compressit::Help.usage
