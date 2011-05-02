@@ -15,11 +15,12 @@ module Compressit
     # config.to_prepare do
     #   Compressit.setup!
     # end
-  end
-  
-  rake_tasks do
-    #load "tasks/compressit.tasks"
-    load "tasks/compressit.rake"
+    
+    rake_tasks do
+      #load "tasks/compressit.tasks"
+      load "tasks/compressit.rake"
+    end
+    
   end
   
 end
