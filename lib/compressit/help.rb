@@ -1,14 +1,16 @@
 module Compressit
   module Help
-    
-    def usage
-      display %{
-        === Usage ===
+    class << self
 
-        help                         # show this usage
-        version                      # show the gem version
-      }
+      def usage
+        display %{
+          === Usage ===
+
+          help                         # show this usage
+          version                      # show the gem version
+        }
+      end
+
     end
-    
   end
 end
