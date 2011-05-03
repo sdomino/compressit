@@ -23,10 +23,4 @@ module Compressit
     end
     
   end
-  
-  def help
-    #Compressit::Help.usage
-    puts 'help'
-  end
-  
 end
