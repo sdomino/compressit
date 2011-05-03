@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
 
 begin
-  require 'compressit/runner'
+  require 'compressit'
 rescue LoadError
   require 'rubygems'
-  require 'compressit/runner'
+  require 'compressit'
 end
 
 Compressit::Help.init
