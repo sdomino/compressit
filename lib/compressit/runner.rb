@@ -8,12 +8,7 @@ module Compressit::Runner
   class << self
     
     def run(argv = ARGV)
-      puts "|#{argv.shift.strip}|"
-      if argv.shift.strip == nil
-        run_command("help")
-      else
-        run_command(argv.shift.strip)
-      end
+      run_command(argv.shift.strip) rescue run_command("help")
     end
     
     def run_command(command)
