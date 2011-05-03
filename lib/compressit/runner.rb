@@ -8,7 +8,11 @@ module Compressit::Runner
   class << self
     
     def run(argv = ARGV)
-      puts argv.shift.strip
+      command = argv.shift.strip ? run_command(command) : run_command("help")
+    end
+    
+    def run_command(command)
+      puts command
     end
   
   end
