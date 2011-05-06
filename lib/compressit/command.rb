@@ -10,9 +10,12 @@ module Compressit
       end
       
       def run_command(command)
+        runner = Base.new
+        runner.setup
+        runner.command
+        runnder.css
         begin
-          runner = Base.new
-          runner.command
+          runner.send(command)
         rescue
           usage
         end
