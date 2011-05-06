@@ -45,7 +45,7 @@ module Compressit
       # True if required arguments were provided
       def arguments_valid?
         # TO DO - implement your real logic here
-        true if @arguments.length == 1
+        true
       end
       
       # Setup the arguments
