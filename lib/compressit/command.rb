@@ -49,12 +49,14 @@ module Compressit
       # Setup the arguments
       def process_arguments
         # TO DO - place in local vars, etc
+        puts "process args"
       end
 
       def process_command
         # TO DO - do whatever this app does
 
         #process_standard_input # [Optional]
+        puts "process command"
       end
 
       def process_standard_input
