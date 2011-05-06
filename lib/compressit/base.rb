@@ -1,5 +1,5 @@
 module Compressit
-  class Base
+  module Base
     class << self
       
       def setup
