@@ -48,7 +48,7 @@ module Compressit
     def parsed_options?
       oparser = OptionParser.new
       oparser.on('-h', '--help')                    {show_usage}
-      oparser.on('-s', '--setup')                   {Compressit::Base.setup}
+      oparser.on('-s', '--setup')                   {Base.setup}
       oparser.on('-v', '--version')                 {output_version}
     
       oparser.on('-c', '--compress')                {Compressit::Base.compress}
