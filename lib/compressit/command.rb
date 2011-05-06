@@ -11,6 +11,9 @@ module Compressit
         @arguments  = arguments
         @stdin      = stdin
         
+        puts parsed_options?
+        puts arguments_valid?
+        
         if parsed_options? && arguments_valid?
           process_arguments
           process_command
