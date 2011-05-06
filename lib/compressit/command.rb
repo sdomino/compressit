@@ -12,7 +12,7 @@ module Compressit
       def run_command(command)
         puts "|#{command}|"
         runner = Base.new
-        puts command.to_sym
+        puts command.first.to_sym
         begin
           runner.send(command)
         rescue
