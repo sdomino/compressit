@@ -15,26 +15,24 @@ module Compressit
           process_arguments
           process_command
         else
-          usage
+          puts "usage"
         end
         
         # @options = OpenStruct.new
         # @options.verbose = false
         # @options.quiet = false
         
-        #command = ARGV.shift.split
-        #run_command(command)
       end
       
       def parsed_options?
         optpars = OptionParser.new
-        optpars.on('-h', '--help', 'help')           {output_help}
-        optpars.on('-s', '--setup', 'setup')         {puts "setup"}
+        optpars.on('-h', '--help', 'help')           {show_usage}
+        optpars.on('-s', '--setup', 'setup')         {Compressit::Base.setup}
         optpars.on('-v', '--version', 'version')     {output_version}
         
-        optpars.on('-c', '--compress', 'compress')   {puts "comrpess"}
-        optpars.on('-css', '--css', 'css')           {puts "css"}
-        optpars.on('-js', '--js', 'js')              {puts "js"}
+        optpars.on('-c', '--compress', 'compress')   {Compressit::Base.compress}
+        optpars.on('-css', '--css', 'css')           {Compressit::Base.css}
+        optpars.on('-js', '--js', 'js')              {Compressit::Base.js}
         
         optpars.parse!(@arguments) rescue return false
         
@@ -51,15 +49,6 @@ module Compressit
       # Setup the arguments
       def process_arguments
         # TO DO - place in local vars, etc
-      end
-
-      def output_help
-        output_version
-        # RDoc::usage() #exits app
-      end
-      
-      def output_version
-        puts "#{File.basename(__FILE__)} version #{VERSION}"
       end
 
       def process_command
@@ -93,16 +82,7 @@ module Compressit
       #   RDoc::usage('usage') # gets usage from comments above
       # end
 
-      def run_command(command)
-        runner = Base.new
-        begin
-          runner.send(command.first.to_sym)
-        rescue
-          usage
-        end
-      end
-      
-      def usage
+      def show_usage
         puts %{
           --- Usage ---
           (--)help, -h                                        # show this usage
@@ -125,6 +105,10 @@ module Compressit
           thor js (version: MAJOR.MINOR.BUMP)                 # compress .js files with a version BUMP unless specified
           thor (css/js) version                               # show file version
         }
+      end
+      
+      def output_version
+        puts "#{File.basename(__FILE__)} version #{VERSION}"
       end
       
     end
