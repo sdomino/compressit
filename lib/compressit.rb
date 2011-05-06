@@ -37,27 +37,26 @@ module Compressit
         process_arguments
         process_command
       else
-        puts "usage"
+        show_usage
       end
-    
-      # @options = OpenStruct.new
-      # @options.verbose = false
-      # @options.quiet = false
     end
   
     def parsed_options?
       oparser = OptionParser.new
       oparser.on('-h', '--help')                    {show_usage}
       oparser.on('-s', '--setup')                   {Base.setup}
-      oparser.on('-v', '--version')                 {output_version}
+      oparser.on('-v', '--version')                 {puts "#{VERSION}"}
     
-      oparser.on('-c', '--compress')                {Compressit::Base.compress}
-      oparser.on('-css', '--css')                   {Compressit::Base.css}
-      oparser.on('-js', '--js')                     {Compressit::Base.js}
-    
-      oparser.parse!(@arguments) rescue return false
-      # process_options
-      true
+      oparser.on('-c', '--compress')                {Base.compress}
+      oparser.on('-css', '--css')                   {Base.css}
+      oparser.on('-js', '--js')                     {Base.js}
+      
+      begin
+        oparser.parse!(@arguments)
+        return true
+      rescue
+        return false
+      end
     end
   
     # True if required arguments were provided
@@ -89,21 +88,6 @@ module Compressit
       #end
     end
   
-    # def process_options
-    #   # @options.verbose = false if @options.quiet
-    # end
-  
-    # def output_options
-    #   puts "Options:"
-    #   @options.marshal_dump.each do |name, val|
-    #     puts "#{name} = #{val}"
-    #   end
-    # end
-  
-    # def output_usage
-    #   RDoc::usage('usage') # gets usage from comments above
-    # end
-
     def show_usage
       puts %{
         --- Usage ---
@@ -127,10 +111,6 @@ module Compressit
         thor js (version: MAJOR.MINOR.BUMP)                 # compress .js files with a version BUMP unless specified
         thor (css/js) version                               # show file version
       }
-    end
-  
-    def output_version
-      puts "#{VERSION}"
     end
   
   end
