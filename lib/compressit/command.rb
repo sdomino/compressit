@@ -38,7 +38,7 @@ module Compressit
         optpars.parse!(@arguments) rescue return false
         
         # process_options
-        # true
+        true
       end
       
       # True if required arguments were provided
