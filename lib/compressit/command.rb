@@ -25,6 +25,7 @@ module Compressit
         # @options.verbose = false
         # @options.quiet = false
         
+        puts Compressit::Base.setup
       end
       
       def parsed_options?
