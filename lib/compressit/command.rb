@@ -37,9 +37,9 @@ module Compressit
         oparser.on('-css', '--css', 'css')           {Compressit::Base.css}
         oparser.on('-js', '--js', 'js')              {Compressit::Base.js}
         
-        puts oprser.parse(@arguments)
+        puts oparser.parse(@arguments)
         puts "--"
-        puts oprser.parse!(@arguments)
+        puts oparser.parse!(@arguments)
         
         
         oparser.parse!(@arguments) rescue return false
