@@ -10,6 +10,7 @@ module Compressit
       end
       
       def run_command(command)
+        puts parse(command)
         runner = Base.new
         puts command.to_sym
         begin
