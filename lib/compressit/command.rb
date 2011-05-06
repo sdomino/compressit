@@ -24,19 +24,17 @@ module Compressit
         # @options = OpenStruct.new
         # @options.verbose = false
         # @options.quiet = false
-        
-        Base.setup
       end
       
       def parsed_options?
         oparser = OptionParser.new
         oparser.on('-h', '--help')                    {show_usage}
-        oparser.on('-s', '--setup')                   {Compressit::Base.setup}
+        oparser.on('-s', '--setup')                   {Base.setup}
         oparser.on('-v', '--version')                 {output_version}
         
-        oparser.on('-c', '--compress')                {Compressit::Base.compress}
-        oparser.on('-css', '--css')                   {Compressit::Base.css}
-        oparser.on('-js', '--js')                     {Compressit::Base.js}
+        oparser.on('-c', '--compress')                {Base.compress}
+        oparser.on('-css', '--css')                   {Base.css}
+        oparser.on('-js', '--js')                     {Base.js}
         
         oparser.parse!(@arguments) rescue return false
         # process_options
