@@ -8,19 +8,19 @@ module Compressit
     class << self
       
       def run(arguments, stdin)
-        @arguments = arguments
-        @stdin = stdin
-        
-        # @options = OpenStruct.new
-        # @options.verbose = false
-        # @options.quiet = false
+        @arguments  = arguments
+        @stdin      = stdin
         
         if parsed_options? && arguments_valid?
           process_arguments
           process_command
         else
-          puts "help"
+          usage
         end
+        
+        # @options = OpenStruct.new
+        # @options.verbose = false
+        # @options.quiet = false
         
         #command = ARGV.shift.split
         #run_command(command)
@@ -28,9 +28,9 @@ module Compressit
       
       def parsed_options?
         optpars = OptionParser.new
-        optpars.on('-h', '--help', 'help')           {puts "help"}
+        optpars.on('-h', '--help', 'help')           {output_help}
         optpars.on('-s', '--setup', 'setup')         {puts "setup"}
-        optpars.on('-v', '--version', 'version')     {puts "version"}
+        optpars.on('-v', '--version', 'version')     {output_version}
         
         optpars.on('-c', '--compress', 'compress')   {puts "comrpess"}
         optpars.on('-css', '--css', 'css')           {puts "css"}
@@ -38,27 +38,16 @@ module Compressit
         
         optpars.parse!(@arguments) rescue return false
         
-        process_options
-        true
+        # process_options
+        # true
       end
-      
-      def process_options
-        # @options.verbose = false if @options.quiet
-      end
-      
-      # def output_options
-      #   puts "Options:"
-      #   @options.marshal_dump.each do |name, val|
-      #     puts "#{name} = #{val}"
-      #   end
-      # end
       
       # True if required arguments were provided
       def arguments_valid?
         # TO DO - implement your real logic here
         true if @arguments.length == 1 
       end
-
+      
       # Setup the arguments
       def process_arguments
         # TO DO - place in local vars, etc
@@ -68,11 +57,7 @@ module Compressit
         output_version
         # RDoc::usage() #exits app
       end
-
-      # def output_usage
-      #   RDoc::usage('usage') # gets usage from comments above
-      # end
-
+      
       def output_version
         puts "#{File.basename(__FILE__)} version #{VERSION}"
       end
@@ -93,6 +78,21 @@ module Compressit
         #end
       end
       
+      # def process_options
+      #   # @options.verbose = false if @options.quiet
+      # end
+      
+      # def output_options
+      #   puts "Options:"
+      #   @options.marshal_dump.each do |name, val|
+      #     puts "#{name} = #{val}"
+      #   end
+      # end
+      
+      # def output_usage
+      #   RDoc::usage('usage') # gets usage from comments above
+      # end
+
       def run_command(command)
         runner = Base.new
         begin
