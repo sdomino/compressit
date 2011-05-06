@@ -11,8 +11,8 @@ module Compressit
         @arguments  = arguments
         @stdin      = stdin
         
-        puts parsed_options?
-        puts arguments_valid?
+        puts "opts: #{parsed_options?}"
+        puts "args: #{arguments_valid?}"
         
         if parsed_options? && arguments_valid?
           process_arguments
@@ -38,7 +38,6 @@ module Compressit
         optpars.on('-js', '--js', 'js')              {Compressit::Base.js}
         
         optpars.parse!(@arguments) rescue return false
-        puts "pars opts"
         # process_options
         true
       end
