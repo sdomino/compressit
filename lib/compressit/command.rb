@@ -10,7 +10,7 @@ module Compressit
       def run_command(command)
         runner = Base.new
         begin
-          runner.send(command)
+          runner.command
         rescue
           usage
         end
