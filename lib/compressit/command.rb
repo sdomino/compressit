@@ -1,5 +1,5 @@
 module Compressit
-  module Control
+  module Command
     class << self
       
       def run
