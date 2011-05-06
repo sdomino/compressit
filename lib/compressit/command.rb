@@ -1,3 +1,5 @@
+require 'compressit/base'
+
 module Compressit
   module Command
     class << self
