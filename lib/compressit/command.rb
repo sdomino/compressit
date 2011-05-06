@@ -25,7 +25,6 @@ module Compressit
       end
       
       def parsed_options?
-        puts "pars opts"
         optpars = OptionParser.new
         optpars.on('-h', '--help', 'help')           {show_usage}
         optpars.on('-s', '--setup', 'setup')         {Compressit::Base.setup}
@@ -36,7 +35,7 @@ module Compressit
         optpars.on('-js', '--js', 'js')              {Compressit::Base.js}
         
         optpars.parse!(@arguments) rescue return false
-        
+        puts "pars opts"
         # process_options
         true
       end
@@ -45,7 +44,6 @@ module Compressit
       def arguments_valid?
         # TO DO - implement your real logic here
         true if @arguments.length == 1
-        puts "args valid?"
       end
       
       # Setup the arguments
