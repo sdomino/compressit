@@ -1,4 +1,3 @@
-require 'ostruct'
 require 'optparse'
 
 require 'compressit/base'
@@ -10,20 +9,7 @@ require 'rails'
 module Compressit
   class Compressit < Rails::Railtie
     
-    # initialzer "setup" do
-    #   
-    # end
     
-    # Add a to_prepare block which is executed once in production
-    # and before each request in development
-    # config.to_prepare do
-    #   Compressit.setup!
-    # end
-    
-    rake_tasks do
-      #load "tasks/compressit.tasks"
-      load "tasks/compressit.rake"
-    end
     
   end
   
@@ -68,26 +54,12 @@ module Compressit
     # Setup the arguments
     def process_arguments
       # TO DO - place in local vars, etc
-      puts "process args"
     end
 
     def process_command
       # TO DO - do whatever this app does
-
-      #process_standard_input # [Optional]
-      puts "process command"
     end
 
-    def process_standard_input
-      input = @stdin.read      
-      # TO DO - process input
-
-      # [Optional]
-      # @stdin.each do |line| 
-      #  # TO DO - process each line
-      #end
-    end
-  
     def show_usage
       puts %{
         --- Usage ---

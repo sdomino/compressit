@@ -1,3 +1,5 @@
+require 'rails'
+
 module Compressit
   module Base
     class << self
@@ -16,6 +18,8 @@ module Compressit
         # @ext                 = ".css"
         # @compressed          = "compressed-#{@version}#{@ext}"
         puts "css"
+        puts "#{File.dirname(__FILE__)}"
+        puts Rails.root.to_s
       end
 
       def js
