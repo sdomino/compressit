@@ -1,5 +1,5 @@
 require 'compressit/base'
-require 'compressit/help'
+require 'compressit/command'
 
 require 'compressit/railtie' if defined?(Rails)
 require 'rails'
