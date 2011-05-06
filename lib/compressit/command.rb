@@ -25,6 +25,7 @@ module Compressit
       end
       
       def parsed_options?
+        puts "pars opts"
         optpars = OptionParser.new
         optpars.on('-h', '--help', 'help')           {show_usage}
         optpars.on('-s', '--setup', 'setup')         {Compressit::Base.setup}
@@ -43,7 +44,8 @@ module Compressit
       # True if required arguments were provided
       def arguments_valid?
         # TO DO - implement your real logic here
-        true if @arguments.length == 1 
+        true if @arguments.length == 1
+        puts "args valid?"
       end
       
       # Setup the arguments
@@ -110,7 +112,7 @@ module Compressit
       end
       
       def output_version
-        puts "#{File.basename(__FILE__)} version #{VERSION}"
+        puts "#{VERSION}"
       end
       
     end
