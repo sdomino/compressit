@@ -29,18 +29,13 @@ module Compressit
       
       def parsed_options?
         oparser = OptionParser.new
-        oparser.on('-h', '--help', 'help')           {show_usage}
-        oparser.on('-s', '--setup', 'setup')         {Compressit::Base.setup}
-        oparser.on('-v', '--version', 'version')     {output_version}
+        oparser.on('-h', '--help')                    {show_usage}
+        oparser.on('-s', '--setup')                   {Compressit::Base.setup}
+        oparser.on('-v', '--version')                 {output_version}
         
-        oparser.on('-c', '--compress', 'compress')   {Compressit::Base.compress}
-        oparser.on('-css', '--css', 'css')           {Compressit::Base.css}
-        oparser.on('-js', '--js', 'js')              {Compressit::Base.js}
-        
-        puts oparser.parse(@arguments)
-        puts "--"
-        puts oparser.parse!(@arguments)
-        
+        oparser.on('-c', '--compress')                {Compressit::Base.compress}
+        oparser.on('-css', '--css')                   {Compressit::Base.css}
+        oparser.on('-js', '--js')                     {Compressit::Base.js}
         
         oparser.parse!(@arguments) rescue return false
         # process_options
