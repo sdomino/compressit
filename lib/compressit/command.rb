@@ -12,7 +12,7 @@ module Compressit
       def run_command(command)
         runner = Base.new
         runner.setup
-        runner.send(css)
+        runner.css
         begin
           runner.send(command)
         rescue
