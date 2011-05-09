@@ -4,15 +4,8 @@ require 'compressit/base'
 require 'compressit/version'
 
 require 'compressit/railtie' if defined?(Rails)
-require 'rails'
 
 module Compressit
-  class Compressit < Rails::Railtie
-    
-    
-    
-  end
-  
   class << self
   
     def run(arguments, stdin)

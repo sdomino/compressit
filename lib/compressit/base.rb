@@ -11,25 +11,19 @@ module Compressit
       end
   
       def css
-        # @files_to_compress   = Dir.glob("#{Dir.new("#{Rails.root}/public/stylesheets")}/**/*.css")
-        # @destination_path    = Dir.open("#{Rails.root}/public/stylesheets/compressed")
-        # # version update somehow
-        # @version             = CSS_VERSION
-        # @ext                 = ".css"
-        # @compressed          = "compressed-#{@version}#{@ext}"
-        puts "css"
-        puts "#{File.dirname(__FILE__)}"
-        puts Rails.root.to_s
+        @files_to_compress   = Dir.glob("#{Rails.root}/public/stylesheets/**/*.css")
+        @destination_path    = Dir.open("#{Rails.root}/public/stylesheets/compressed") rescue Dir.mkdir("#{Rails.root}/public/stylesheets/compressed")
+        @version             = '1.0.0' #CSS_VERSION
+        @ext                 = ".css"
+        @compressed          = "compressed-#{@version}#{@ext}"
       end
 
       def js
-        # @files_to_compress   = Dir.glob("#{Dir.new("#{Rails.root}/public/javascripts")}/**/*.js")
-        # @destination_path    = Dir.open("#{Rails.root}/public/javascripts/compressed")
-        # # version update somehow
-        # @version             = JS_VERSION
-        # @ext                 = ".js"
-        # @compressed          = "compressed-#{@version}#{@ext}"
-        puts "js"
+        @files_to_compress   = Dir.glob("#{Rails.root}/public/javascripts/**/*.js")
+        @destination_path    = Dir.open("#{Rails.root}/public/javascripts/compressed") rescue Dir.mkdir("#{Rails.root}/public/javascripts/compressed")
+        @version             = '1.0.0' #CSS_VERSION
+        @ext                 = ".js"
+        @compressed          = "compressed-#{@version}#{@ext}"
       end
       
     end

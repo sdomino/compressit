@@ -1,11 +1,11 @@
+require 'compressit'
+require 'rails'
+
 module Compressit
   class Railtie < Rails::Railtie
     
     initializer "compressit.configure_rails_initialization" do
-      #config.load_paths << "#{RAILS_ROOT}/app/widgets"
-      puts Rails.root
-      puts "hi"
-      config.add_load_path Rails.root
+      #config.add_load_path Rails.root
     end
     
     # Add a to_prepare block which is executed once in production
