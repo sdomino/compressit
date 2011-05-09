@@ -1,4 +1,4 @@
-require 'compressit'
+# require 'compressit'
 require 'rails'
 
 module Compressit
