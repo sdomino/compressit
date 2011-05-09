@@ -13,7 +13,8 @@ namespace :compressit do
     puts File.exists?(@yuicompressor)
     puts "---"
     puts @yuicompressor
-    puts File.join(File.dirname(__FILE__), *%w".. yuicompressor-2.4.6.jar")
+    puts "---"
+    puts File.join($LOAD_PATH, *%w".. yuicompressor-2.4.6.jar")
     
     # File.open("#{Rails.root}/config/initializers/compressit.rb", "w+") do |file|
     #   file.puts "CSS_VERSION = '1.0.0'"
