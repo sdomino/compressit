@@ -5,7 +5,7 @@ namespace :compressit do
 
     @java                = "/usr/bin/java"
     # @yuicompressor       = "#{File.dirname(__FILE__)}/yuicompressor-2.4.2.jar"
-    @yuicompressor       = '/Users/Delorum3/.rvm/gems/ruby-1.9.2-p0/bin/yuicompressor-2.4.2.jar'
+    @yuicompressor       = '/Users/Delorum3/.rvm/gems/ruby-1.9.2-p0/bin/yuicompressor-2.4.6.jar'
     
     puts File.executable?(@yuicompressor)
     puts File.executable_real?(@yuicompressor)
