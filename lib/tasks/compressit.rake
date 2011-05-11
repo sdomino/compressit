@@ -1,21 +1,25 @@
-require 'compressit/base'
-include Compressit
+require 'compressit'
 
 namespace :compressit do
   
-  desc ""
+  desc ''
+  task :config do
+    Compressit::Base.config
+  end
+  
+  desc ''
   task :setup do
-    Base.setup
+    Compressit::Base.setup
   end
   
-  desc ""
+  desc ''
   task :css => :setup do
-    Base.css
+    Compressit::Base.css
   end
   
-  desc ""
+  desc ''
   task :js => :setup do
-    Base.js
+    Compressit::Base.js
   end
   
 end
