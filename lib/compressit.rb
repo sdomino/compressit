@@ -16,7 +16,7 @@ module Compressit
         process_arguments
         process_command
       else
-        show_usage
+        # Compressit::Base.show_usage
       end
     end
   
