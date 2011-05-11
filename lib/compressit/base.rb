@@ -1,57 +1,85 @@
 module Compressit
-  class Base
+  module Base
     class << self
 
-      def config
+      def setup
+        
+        @java = '/usr/bin/java'
+        @yuicompressor = File.expand_path(File.dirname(__FILE__) + './../yuicompressor-2.4.6.jar')
+        
         if defined?(Rails)
           # install thor tasks
           # `thor install lib/tasks/compressit.thor`
-    
+          
+          # create the rails initializer that will contain the css/js version constants
           unless File.exists?("#{Rails.root}/config/initializers/compressit.rb")
             File.open("#{Rails.root}/config/initializers/compressit.rb", "w") do |file|
               file.puts "CSS_VERSION = '1.0.0'"
               file.puts "JS_VERSION = '1.0.0'"
             end
           end
+          
+          # create the folder where the compressed .css files will be saved
+          unless File.directory?("#{Rails.root}/public/stylesheets/compressed")
+            Dir.mkdir("#{Rails.root}/public/stylesheets/compressed")
+          end
+          
+          # create the folder where the compressed .js files will be saved
+          unless File.directory?("#{Rails.root}/public/javascripts/compressed")
+            Dir.mkdir("#{Rails.root}/public/javascripts/compressed")
+          end
+          
+          # after the initializer has been created it needs to be required because it cannot be accessed through rake tasks
+          require "#{Rails.root}/config/initializers/compressit.rb"
+          
+          # set css/js instance variables from css/js constants
+          @css_version  = CSS_VERSION
+          @js_version   = JS_VERSION
         else
-          # set for a place to save css_version and js_version
+          puts 'specify where you would like to store the css/js version constants'
+          File.open("#{gets.strip}/compressit.txt", "w") do |file|
+            file.puts "CSS_VERSION = '1.0.0'" unless file.CSS_VERSION
+            file.puts "JS_VERSION = '1.0.0'" unless file.JS_VERSION
+            
+            @css_version  = file.CSS_VERSION
+            @js_version   = file.JS_VERSION
+          end
         end
       end
       
-      def setup
-        if defined?(Rails)
-          @java                = "/usr/bin/java"
-          @yuicompressor       = File.expand_path(File.dirname(__FILE__) + './../yuicompressor-2.4.6.jar')
-        
-          require "#{Rails.root}/config/initializers/compressit.rb" rescue puts 'error reporting'
-        else
-          # specify java and yuicompressor. may need to ask for a place to save .jar
-        end
-      end
-
       def css
         if defined?(Rails)
-          @files_to_compress   = Dir.glob("#{Rails.root}/public/stylesheets/**/*.css")
-          @destination_path    = Dir.open("#{Rails.root}/public/stylesheets/compressed") rescue Dir.mkdir("#{Rails.root}/public/stylesheets/compressed")
-          @ext                 = ".css"
-          @compressed          = "compressed-#{CSS_VERSION}#{@ext}"
+          @files_to_compress         = Dir.glob("#{Rails.root}/public/stylesheets/**/*.css")
+          @destination_path          = Dir.open("#{Rails.root}/public/stylesheets/compressed")
         else
-          # ask for @files_to_compress, @destination_path, and @ext
+          puts 'specify the path to the files which are to be compressed: '
+          @files_to_compress         = gets.strip
+          
+          puts 'specify the path where you would like the compressed file saved: '
+          @destination_path          = gets.strip
         end
+        
+        @ext                         = '.css'
+        @compressed                  = "compressed-#{@css_version}#{@ext}"
         
         compressit
       end
 
       def js
         if defined?(Rails)
-          @files_to_compress   = Dir.glob("#{Rails.root}/public/javascripts/**/*.js")
-          @destination_path    = Dir.open("#{Rails.root}/public/javascripts/compressed") rescue Dir.mkdir("#{Rails.root}/public/javascripts/compressed")
-          @ext                 = ".js"
-          @compressed          = "compressed-#{JS_VERSION}#{@ext}"
+          @files_to_compress         = Dir.glob("#{Rails.root}/public/javascripts/**/*.js")
+          @destination_path          = Dir.open("#{Rails.root}/public/javascripts/compressed")
         else
-          # ask for @files_to_compress, @destination_path, and @ext
+          puts 'specify the path to the files which are to be compressed: '
+          @files_to_compress         = gets.strip
+          
+          puts 'specify the path where you would like the compressed file saved: '
+          @destination_path          = gets.strip
         end
-  
+        
+        @ext                         = '.js'
+        @compressed                  = "compressed-#{@js_version}.#{@ext}"
+        
         compressit
       end
 
@@ -70,27 +98,26 @@ module Compressit
         # confirm compression and show destination path where file can be found
         puts "Complete! Compressed #{@ext} file '#{@compressed}', can be found in '#{File.path(@destination_path)}'"
       end
-    
+      
+      # add the ability to see css/js version. do 
+      
       def show_usage
         puts %{
           --- Usage ---
-          (--)help, -h                                        # show this usage
-          (--)setup, -s                                       # create initial .css and .js version files and installs thor task(optional)
-          (--)version, -v                                     # show the current gem version
-
-          (--)compress, -c                                    # compress both .css and .js files with a verion BUMP unless otherwise specified
-          (--)css, -css                                       # compress .css files with a version BUMP unless otherwise specified
-          (--)js, -js                                         # compress .js files with a verion BUMP unless otherwise specified
-
-          --- Rake Tasks ---
-          rake css                                            # compress .css files with a version BUMP unless specified
-          rake js                                             # compress .js files with a version BUMP unless specified
-          rake (css/js) version                               # show respecitve file version
-
-          --- Thor Tasks ---
-          thor css                                            # compress .css files with a version BUMP unless specified
-          thor js                                             # compress .js files with a version BUMP unless specified
-          thor (css/js) version                               # show respective file version
+          (--)help, -h                   # show this usage
+          (--)setup, -s                  # create initial .css and .js version files and installs thor task(optional)
+          (--)version, -v                # show the current gem version
+                                         
+          (--)css, -css                  # compress .css files with the version specified in the config file
+          (--)js, -js                    # compress .js files with the version specified in the config file
+                                         
+          --- Rake Tasks ---             
+          rake css                       # compress .css files with the version specified in the config file
+          rake js                        # compress .js files with the version specified in the config file
+                                         
+          --- Thor Tasks ---             
+          thor css                       # compress .css files with the version specified in the config file
+          thor js                        # compress .js files with the version specified in the config file
         }
       end
       

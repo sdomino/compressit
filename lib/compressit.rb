@@ -22,13 +22,12 @@ module Compressit
   
     def parsed_options?
       oparser = OptionParser.new
-      oparser.on('-h', '--help')                    {show_usage}
-      oparser.on('-s', '--setup')                   {Base.setup}
+      oparser.on('-h', '--help')                    {Compressit::Base.show_usage}
+      oparser.on('-s', '--setup')                   {Compressit::Base.setup}
       oparser.on('-v', '--version')                 {puts "#{VERSION}"}
     
-      oparser.on('-c', '--compress')                {Base.compress}
-      oparser.on('-css', '--css')                   {Base.css}
-      oparser.on('-js', '--js')                     {Base.js}
+      oparser.on('-css', '--css')                   {Compressit::Base.css}
+      oparser.on('-js', '--js')                     {Compressit::Base.js}
       
       begin
         oparser.parse!(@arguments)

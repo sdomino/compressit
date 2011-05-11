@@ -3,11 +3,6 @@ require 'compressit'
 namespace :compressit do
   
   desc ''
-  task :config do
-    Compressit::Base.config
-  end
-  
-  desc ''
   task :setup do
     Compressit::Base.setup
   end
