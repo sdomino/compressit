@@ -1,0 +1,90 @@
+= Compressit
+
+A simple way to compress .css and .js files
+
+---
+
+== Features
+
+=== Speed
+
+Compressing all of your projects .css and .js files into single files not only reduces the size of the files, but also reduces the amount of web requests required on each page load
+
+---
+
+=== Compatability
+
+Compressit is designed to work within a Rails project, or stand-alone, and supports the following:
+	
+* Rake tasks
+* Supports CLI (command line input) (coming soon)
+* Thor tasks (coming soon)
+	
+---
+	
+== Install
+
+=== Rails
+
+Add this line to your Gemfile:
+
+	gem 'Compressit'
+
+Then bundle install:
+	
+	bundle install
+	
+=== Non Rails
+
+	gem install compressit
+	
+---
+
+== Usage
+
+=== CLI
+
+(comming soon)
+
+=== Rake
+
+==== Rails
+Make sure that the compressit rake tasks are available:
+	rake -T
+
+Setup (It is not required that you run this as both the .css and .js rake tasks require this step before they are able to run, and will automatically run it):
+	
+	rake compressit:setup
+
+* Creates 'config/initializers/compressit.rb' with the version constants 'CSS_VERSION' and 'JS_VERSION' defaulted to '1.0.0'
+* Creates 'public/stylesheets/compressed/' where compressed .css file is saved
+* Creates 'public/javascripts/compressed/' where the compressed file is saved
+
+Iterates through 'public/stylesheets' and compresses all .css files and compresses them into 'stylesheets/compressed/'
+	
+	rake compressit:css
+	
+Iterates through 'public/javascripts' and compresses all .js files and compresses them into 'javascripts/compressed/'
+	
+	rake compressit:js
+	
+
+Versioning:
+
+Use 'config/initializers/compressit.rb' to version your .css and .js files. If you do not increment the version at all the previous file will just be overwritten
+	
+==== Non-Rails
+
+(coming soon)
+
+---
+
+=== Thor
+
+(coming soon)
+
+---
+
+== Copyright
+
+Copyright &copy; 2011 Steve Domino. See LICENSE.txt for further details
