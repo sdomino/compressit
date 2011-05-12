@@ -104,6 +104,10 @@ module Compressit
         }
       end
       
+      def test
+        puts "test"
+      end
+      
     end
   end
 end
