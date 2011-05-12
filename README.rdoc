@@ -22,17 +22,17 @@ Compressit is designed to work within a Rails project, or stand-alone, and suppo
 
 Add this line to your Gemfile:
 
-	gem 'compressit'
+ gem 'compressit'
 
 Then bundle install:
 	
-	bundle install
+ bundle install
 	
 ---
 	
 === Non Rails
 
-	gem install compressit
+ gem install compressit
 	
 == Usage
 
@@ -46,11 +46,12 @@ Then bundle install:
 
 ==== Rails
 Make sure that the compressit rake tasks are available:
-	rake -T
+
+ rake -T
 
 Setup (It is not required that you run this as both the .css and .js rake tasks require this step before they are able to run, and will automatically run it):
-	
-	rake compressit:setup
+
+ rake compressit:setup
 
 * Creates 'config/initializers/compressit.rb' with the version constants 'CSS_VERSION' and 'JS_VERSION' defaulted to '1.0.0'
 * Creates 'public/stylesheets/compressed/' where compressed .css file is saved
@@ -58,11 +59,11 @@ Setup (It is not required that you run this as both the .css and .js rake tasks 
 
 Iterates through 'public/stylesheets' and compresses all .css files and compresses them into 'stylesheets/compressed/'
 	
-	rake compressit:css
+ rake compressit:css
 	
 Iterates through 'public/javascripts' and compresses all .js files and compresses them into 'javascripts/compressed/'
 	
-	rake compressit:js
+ rake compressit:js
 
 Versioning:
 
