@@ -34,8 +34,6 @@ Then bundle install:
 
 	gem install compressit
 	
----
-
 == Usage
 
 === CLI
@@ -46,7 +44,7 @@ Then bundle install:
 
 === Rake
 
-* ==== Rails
+==== Rails
 Make sure that the compressit rake tasks are available:
 	rake -T
 
@@ -71,7 +69,7 @@ Versioning:
 
 Use 'config/initializers/compressit.rb' to version your .css and .js files. If you do not increment the version at all the previous file will just be overwritten
 
-* ==== Non-Rails
+==== Non-Rails
 
 (coming soon)
 
