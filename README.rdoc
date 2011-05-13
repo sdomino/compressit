@@ -32,7 +32,7 @@ Then bundle install:
 
 === CLI
 
-(comming soon)
+(coming soon)
 
 ---
 
