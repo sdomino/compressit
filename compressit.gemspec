@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.authors     = ["sdomino"]
   s.email       = ["sdomino@pagodabox.com"]
   s.homepage    = "http://wwww.pagodabox.com"
-  s.summary     = "%q{Compressit is a simple gem that will compress all of your .css and .js files into single compressed files respectively.}"
-  s.description = "%q{Compressit uses the yuicompressor-2.4.2.jar java file created by Yahoo to compress all of your .css and .js files into single compressed files respectively. This not only reduces the size of your files (turning them into one), but also results in less http requests at load time resulting in an overall faster site, and a higher grade from Yahoo's 'Yslow' firefox plugin.}"
+  s.summary     = "Compressit is a simple gem that will compress all of your .css and .js."
+  s.description = "Compressit uses the yuicompressor-2.4.6.jar java file created by Yahoo to compress all of your .css and .js files into single compressed files respectively. This not only reduces the size of your files, but also results in less http requests at load time resulting in an overall faster site."
   
   s.rubyforge_project = "compressit"
   
