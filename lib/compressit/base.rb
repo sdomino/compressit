@@ -3,7 +3,6 @@ module Compressit
     class << self
 
       def setup
-        
         @java = '/usr/bin/java'
         @yuicompressor = File.expand_path(File.dirname(__FILE__) + './../yuicompressor-2.4.6.jar')
         
@@ -37,6 +36,7 @@ module Compressit
       end
       
       def css
+        puts "css"
         if defined?(Rails)
           @files_to_compress         = Dir.glob("#{Rails.root}/public/stylesheets/**/*.css")
           @destination_path          = Dir.open("#{Rails.root}/public/stylesheets/compressed")
@@ -64,8 +64,6 @@ module Compressit
         compressit
       end
 
-      private
-      
       def compressit
         puts "compressing"
         
@@ -102,10 +100,6 @@ module Compressit
           thor css                       # compress .css files with the version specified in the config file (coming soon)
           thor js                        # compress .js files with the version specified in the config file (coming soon)
         }
-      end
-      
-      def test
-        puts "test"
       end
       
     end

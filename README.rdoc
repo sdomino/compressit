@@ -4,16 +4,10 @@ Compressit provides a simple way to compress your project .css and .js files to 
 
 == Features
 
-=== Speed
-
-Compressing all of your projects .css and .js files into single files not only reduces the size of the files, but also reduces the amount of web requests required on each page load
-
-=== Compatability
-
-Compressit is designed to work within a Rails project, or stand-alone, and supports the following:
+Compressit is designed to work within Rails projects or stand-alone, and supports the following:
 	
 * Rake tasks
-* Supports CLI (command line input) (coming soon)
+* Command Line Input (CLI) (coming soon)
 * Thor tasks (coming soon)
 	
 == Install
@@ -45,10 +39,6 @@ Then bundle install:
 === Rake
 
 ==== Rails
-Make sure that the compressit rake tasks are available:
-
- rake -T
-
 Setup (It is not required that you run this as both the .css and .js rake tasks will run it automatically):
 
  rake compressit:setup
@@ -57,11 +47,11 @@ Setup (It is not required that you run this as both the .css and .js rake tasks 
 * Creates 'public/stylesheets/compressed/' where compressed .css file is saved
 * Creates 'public/javascripts/compressed/' where the compressed file is saved
 
-Iterates through 'public/stylesheets' and compresses all .css files placing them into 'stylesheets/compressed/'
+Iterates through 'public/stylesheets' and compresses all .css files placing them into 'public/stylesheets/compressed/'
 	
  rake compressit:css
 	
-Iterates through 'public/javascripts' and compresses all .js files placing them into 'javascripts/compressed/'
+Iterates through 'public/javascripts' and compresses all .js files placing them into 'public/javascripts/compressed/'
 	
  rake compressit:js
 

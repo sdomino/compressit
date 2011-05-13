@@ -29,12 +29,7 @@ module Compressit
       oparser.on('-css', '--css')                   {Compressit::Base.css}
       oparser.on('-js', '--js')                     {Compressit::Base.js}
       
-      begin
-        oparser.parse!(@arguments)
-        return true
-      rescue
-        return false
-      end
+      oparser.parse!(@arguments) ? return true : return false
     end
   
     # True if required arguments were provided
