@@ -49,7 +49,7 @@ Make sure that the compressit rake tasks are available:
 
  rake -T
 
-Setup (It is not required that you run this as both the .css and .js rake tasks require this step before they are able to run, and will automatically run it):
+Setup (It is not required that you run this as both the .css and .js rake tasks will run it automatically):
 
  rake compressit:setup
 
@@ -57,11 +57,11 @@ Setup (It is not required that you run this as both the .css and .js rake tasks 
 * Creates 'public/stylesheets/compressed/' where compressed .css file is saved
 * Creates 'public/javascripts/compressed/' where the compressed file is saved
 
-Iterates through 'public/stylesheets' and compresses all .css files and compresses them into 'stylesheets/compressed/'
+Iterates through 'public/stylesheets' and compresses all .css files placing them into 'stylesheets/compressed/'
 	
  rake compressit:css
 	
-Iterates through 'public/javascripts' and compresses all .js files and compresses them into 'javascripts/compressed/'
+Iterates through 'public/javascripts' and compresses all .js files placing them into 'javascripts/compressed/'
 	
  rake compressit:js
 
@@ -81,4 +81,4 @@ Use 'config/initializers/compressit.rb' to version your .css and .js files. If y
 
 == Copyright
 
-Copyright &copy; 2011 Steve Domino. See LICENSE.txt for further details
+Copyright (c) 2011 Steve Domino. See LICENSE.txt for further details
