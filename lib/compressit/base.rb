@@ -36,7 +36,6 @@ module Compressit
       end
       
       def css
-        puts "css"
         if defined?(Rails)
           @files_to_compress         = Dir.glob("#{Rails.root}/public/stylesheets/**/*.css")
           @destination_path          = Dir.open("#{Rails.root}/public/stylesheets/compressed")
@@ -65,8 +64,6 @@ module Compressit
       end
 
       def compressit
-        puts "compressing"
-        
         # remove compressed file if the version hasn't been updated to avoid duplicate compression
         `rm -f #{File.path(@destination_path)}/#{@compressed}` if File.exists?("#{File.path(@destination_path)}/#{@compressed}")
 
