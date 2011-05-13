@@ -1,6 +1,6 @@
 = Compressit
 
-A simple way to compress .css and .js files
+Compressit provides a simple way to compress your project .css and .js files to not only reduce their size, but also reduce web requests improving the overall performance of your site.
 
 == Features
 
