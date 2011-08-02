@@ -12,7 +12,7 @@ Compressit is designed to work within Rails projects or stand-alone, and support
 	
 == Install
 
-=== Rails
+=== Rails ( < 3.0.x )
 
 Add this line to your Gemfile:
 
@@ -32,7 +32,11 @@ Then bundle install:
 
 === CLI
 
-(coming soon)
+  Usage: compressit [option] [FILE_FROM] [FILE_TO]
+    -h, --help                       Display this screen
+    -v, --version                    Display current gem version
+    -c, --css FILE_FROM FILE_TO      Compress css files from specified file to designated file
+    -j, --js FILE_FROM FILE_TO       Compress javascript files from specified file to designated file
 
 ---
 
