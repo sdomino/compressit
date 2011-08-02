@@ -1,11 +1,11 @@
-Dir["#{File.dirname(__FILE__)}/compressit/*"].each { |file| require(file)}
+Dir["#{File.dirname(__FILE__)}/compressit/*"].each {|file| require(file)}
 
 require 'optparse'
 
 module Compressit
   class << self
   
-    def run(arguments, stdin)
+    def run(arguments)
       options = Hash.new
       
       optparser = OptionParser.new do|opts|

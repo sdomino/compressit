@@ -7,4 +7,4 @@ rescue LoadError
   require 'compressit'
 end
 
-Compressit.run(ARGV, STDIN)
+Compressit.run(ARGV)
