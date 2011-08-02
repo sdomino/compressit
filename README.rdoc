@@ -4,21 +4,21 @@ Compressit provides a simple way to compress your project .css and .js files to 
 
 == Features
 
-Compressit is designed to work within Rails projects or stand-alone, and supports the following:
-	
-* Rake tasks
-* Command Line Input (CLI) (coming soon)
-* Thor tasks (coming soon)
+* Command Line Input (CLI)	
+* Rake tasks (discontinued)
+* Thor tasks (discontinued)
 	
 == Install
 
-=== Rails ( < 3.0.x )
+=== Rails (discontinued support)
+
+NOTE: This will still work with Rails, however I have discontinued a specific rails 'integration' due to a very similar feature being added with the release of Rails 3.1
 
 Add this line to your Gemfile:
 
  gem 'compressit'
 
-Then bundle install:
+Then do a bundle install:
 	
  bundle install
 	
@@ -30,48 +30,21 @@ Then bundle install:
 	
 == Usage
 
-=== CLI
-
-  Usage: compressit [option] [FILE_FROM] [FILE_TO]
-    -h, --help                       Display this screen
-    -v, --version                    Display current gem version
-    -c, --css FILE_FROM FILE_TO      Compress css files from specified file to designated file
-    -j, --js FILE_FROM FILE_TO       Compress javascript files from specified file to designated file
-
----
-
-=== Rake
-
-==== Rails
-Setup (It is not required that you run this as both the .css and .js rake tasks will run it automatically):
-
- rake compressit:setup
-
-* Creates 'config/initializers/compressit.rb' with the version constants 'CSS_VERSION' and 'JS_VERSION' defaulted to '1.0.0'
-* Creates 'public/stylesheets/compressed/' where compressed .css file is saved
-* Creates 'public/javascripts/compressed/' where the compressed file is saved
-
-Iterates through 'public/stylesheets' and compresses all .css files placing them into 'public/stylesheets/compressed/'
-	
- rake compressit:css
-	
-Iterates through 'public/javascripts' and compresses all .js files placing them into 'public/javascripts/compressed/'
-	
- rake compressit:js
-
-Versioning:
-
-Use 'config/initializers/compressit.rb' to version your .css and .js files. If you do not increment the version at all the previous file will just be overwritten
-
-==== Non-Rails
-
-(coming soon)
+  Usage: compressit [option] [FOLDER] [VERSION]
+  
+    -h, --help                      Display this screen
+    -v, --version                   Display current gem version
+    -c, --css FOLDER VERSION        Compress css files from [FOLDER] into [FOLDER]/compressed
+    -j, --js FOLDER VERSION         Compress javascript files from [FOLDER] into [FOLDER]/compressed
 
 ---
 
-=== Thor
+== TODO
 
-(coming soon)
+* May add a better versioning system
+* Initially had the ability to specify a destination folder, may add this back if requested
+* Tests
+* One final pass of cleanup and refactoring
 
 == Copyright
 
