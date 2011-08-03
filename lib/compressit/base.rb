@@ -18,8 +18,10 @@ module Compressit
         # compress each file in @files_to_compress and save the compressed file to @destination_path
         begin
           @files_to_compress.each do |file|
-            `#{@java} -jar #{@yuicompressor} #{file} >> #{File.path(@destination_path)}/#{@compressed}`
-            puts "Added: #{File.basename(file)}... \n"
+            unless File.path(file).include?('compressed')
+              `#{@java} -jar #{@yuicompressor} #{file} >> #{File.path(@destination_path)}/#{@compressed}`
+              puts "Added: #{File.basename(file)}... \n"
+            end
           end
           
           # confirm compression and show destination path where file can be found

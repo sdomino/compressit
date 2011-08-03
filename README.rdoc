@@ -45,6 +45,8 @@ Then do a bundle install:
 * Initially had the ability to specify a destination folder, may add this back if requested
 * Tests
 * One final pass of cleanup and refactoring
+* Implement the ability to skip files in the compression process
+* It would be awesome if it could replace all your current css/js calls with itself so you didn't have to (we'll see about this)
 
 == Copyright
 
