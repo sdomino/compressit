@@ -31,10 +31,10 @@ Then do a bundle install:
 
   Usage: compressit -command [FILE/DIR]
   
-    -h, --help 					Display this help
-    -v, --versioning 			Display current gem version
-    -f, --file FILE 			Compress FILE in place
-    -F, --files DIR 			Compress files from [DIR] into [DIR]/compressed
+    -h, --help						Display this help
+    -v, --versioning				Display current gem version
+    -f, --file FILE 				Compress FILE in place
+    -F, --files DIR					Compress files from [DIR] into [DIR]/compressed
 
 ---
 
@@ -43,7 +43,7 @@ Then do a bundle install:
 * May add a better versioning system
 * Initially had the ability to specify a destination folder, may add this back if requested
 * Tests
-* [x]One final pass of cleanup and refactoring
+* [X]One final pass of cleanup and refactoring
 * Implement the ability to skip files in the compression process
 * It would be awesome if it could replace all your current css/js calls with itself so you didn't have to (we'll see about this)
 
