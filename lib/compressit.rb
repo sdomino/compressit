@@ -40,7 +40,7 @@ module Compressit
       
       begin optparser.parse!(arguments)
       rescue OptionParser::InvalidOption => error
-        puts "Compressit cannot #{error}, try one of this: "
+        puts "#{error}, try one of this: "
         puts optparser
         exit 1
       end
