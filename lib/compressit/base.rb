@@ -36,8 +36,8 @@ module Compressit
           
           # confirm compression and show destination path where file can be found
           puts "Complete! Compressed #{options[:ext]} file '#{compressed}', can be found in '#{File.dirname(destination_path)}'"
-        rescue
-          puts "Hmm... looks like this folder doesn't contain any #{options[:ext]} files."
+        rescue => exception
+          puts "Oops! #{exception}"
         end
       end
       
