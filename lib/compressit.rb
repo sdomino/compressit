@@ -7,40 +7,46 @@ module Compressit
   
     def run(arguments)
       unless arguments.empty? || !arguments[0].include?('-')
-        options = Hash.new
-        
         optparser = OptionParser.new do|opts|
-          
-          opts.banner = "Usage: compressit [option] [FOLDER] [VERSION]"
+          opts.banner = "Usage: compressit -command [FILE/DIR]"
 
           opts.on('-h', '--help', 'Display this help') do
             puts optparser
+            exit
           end
           opts.on('-v', '--version', 'Display current gem version') do
-            puts "Currently using version: #{VERSION}"
+            puts "Compressit-#{VERSION}"
           end
-          opts.on('-c', '--css FOLDER VERSION', 'Compress css files from [FOLDER] into [FOLDER]/compressed') do
-            puts "Compressing css files from '#{arguments[0]}' into '#{arguments[0]}/compressed/compressed-#{arguments[1]}.css'"
-            options[:folder], options[:version], options[:ext] = arguments[0], arguments[1], '.css'
-            Compressit::Base.compressit(options)
+          opts.on('-f', '--file FILE', 'Compress file in place') do |file|
+            prepare(file)
           end
-          opts.on('-j', '--js FOLDER VERSION', 'Compress javascript files from [FOLDER] into [FOLDER]/compressed') do
-            puts "Compressing javascript files from '#{arguments[0]}' into '#{arguments[0]}/compressed/compressed-#{arguments[1]}.js'"
-            options[:folder], options[:version], options[:ext] = arguments[0], arguments[1], '.js'
-            Compressit::Base.compressit(options)
+          opts.on('-F', '--files DIR', 'Compress files from [DIR] into [DIR]/compressed') do |dir|
+            prepare(dir)
           end
         end
         
         begin optparser.parse!(arguments)
-        rescue OptionParser::InvalidOption => error
-          puts "#{error}, try one of this: "
+        rescue OptionParser::ParseError => error
+          puts "#{error}"
           puts optparser
-          exit 1
+          exit
         end
       else
         puts `compressit -h`
       end
     end
-  
+
+    def prepare(data)
+      options = Hash[:data, data]
+
+      puts "Specify a version (ex. x.x.x):"
+      options[:version] = gets.strip
+
+      puts "css/js:"
+      options[:ext] = gets.strip
+
+      Compressit::Base.compressit(options)
+    end
+ 
   end
 end
