@@ -38,6 +38,9 @@ module Compressit
           puts "Complete! Compressed #{options[:ext]} file '#{compressed}', can be found in '#{File.dirname(destination_path)}'"
         rescue => exception
           puts "Oops! #{exception}"
+          exception.backtrace.each do |trace|
+            puts "#{trace} \n"
+          end
         end
       end
       
