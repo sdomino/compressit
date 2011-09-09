@@ -17,7 +17,7 @@ module Compressit
           opts.on('-v', '--version', 'Display current gem version') do
             puts "Compressit-#{VERSION}"
           end
-          opts.on('-f', '--file FILE', 'Compress file in place') do |file|
+          opts.on('-f', '--file FILE', 'Compress FILE in place') do |file|
             prepare(file)
           end
           opts.on('-F', '--files DIR', 'Compress files from [DIR] into [DIR]/compressed') do |dir|
