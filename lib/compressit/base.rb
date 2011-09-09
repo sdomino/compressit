@@ -3,7 +3,7 @@ module Compressit
     class << self
 
       def compressit(options)
-        @version, @ext, @folder  = options[:version], options[:ext], options[:folder]
+        @folder, @version, @ext = options[:folder], options[:version], options[:ext]
         
         @java, @yuicompressor = '/usr/bin/java', File.expand_path(File.dirname(__FILE__) + './../yuicompressor-2.4.6.jar')
         

@@ -1,4 +1,4 @@
-Dir["#{File.dirname(__FILE__)}/compressit/*"].each {|file| require(file)}
+Dir["#{File.dirname(__FILE__)}/compressit/**/*"].each {|file| require(file)}
 
 require 'optparse'
 
@@ -11,6 +11,14 @@ module Compressit
       optparser = OptionParser.new do|opts|
         
         opts.banner = "Usage: compressit [option] [FOLDER] [VERSION]"
+
+        arguments.each do |argument|
+          if argument.empty? || !argument.include?('-')
+            opts.on('') do
+              puts optparser
+            end
+          end
+        end
 
         opts.on('-h', '--help', 'Display this help') do
           puts optparser
@@ -32,7 +40,7 @@ module Compressit
       
       begin optparser.parse!(arguments)
       rescue OptionParser::InvalidOption => error
-        puts "Oops! #{error}, try this: "
+        puts "Compressit cannot #{error}, try one of this: "
         puts optparser
         exit 1
       end
