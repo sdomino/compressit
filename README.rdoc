@@ -5,7 +5,9 @@ Compressit provides a simple way to compress your project .css and .js files to 
 == Features
 
 * Command Line Input (CLI)	
-* Rake tasks (discontinued)
+* Reduce filesize of all css/js files
+* Reduces number of necissary requests to servers for assets
+* Support for single or multiple file compression
 	
 == Install
 
