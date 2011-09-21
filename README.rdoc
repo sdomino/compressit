@@ -16,7 +16,7 @@ Compressit provides a simple way to compress your project .css and .js files to 
 NOTE: This will still work with Rails, however I have discontinued a specific rails 'integration' due to a very similar feature being added with the release of Rails 3.1
 
 Add this line to your Gemfile:
-
+ 
  gem 'compressit'
 
 Then do a bundle install:
@@ -26,17 +26,16 @@ Then do a bundle install:
 ---
 	
 === Non Rails
-
  gem install compressit
 	
 == Usage
 
-	Usage: compressit -command [FILE/DIR]
+ Usage: compressit -command [FILE/DIR]
 
-	-h, --help 														Display this help
-	-v, --version 												Display current gem version
-	-f, --file FILE 											Compress FILE in place
-	-F, --files DIR 											Compress files from DIR into DIR/compressed
+ -h, --help 														Display this help
+ -v, --version 												Display current gem version
+ -f, --file FILE 											Compress FILE in place
+ -F, --files DIR 											Compress files from DIR into DIR/compressed
 
 ---
 
