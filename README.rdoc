@@ -31,11 +31,12 @@ Then do a bundle install:
 	
 == Usage
 
-  Usage: compressit -command [FILE/DIR]
-  	-h, --help 														Display this help
-		-v, --version 												Display current gem version
-		-f, --file FILE 											Compress FILE in place
-		-F, --files DIR 											Compress files from DIR into DIR/compressed
+	Usage: compressit -command [FILE/DIR]
+
+	-h, --help 														Display this help
+	-v, --version 												Display current gem version
+	-f, --file FILE 											Compress FILE in place
+	-F, --files DIR 											Compress files from DIR into DIR/compressed
 
 ---
 
